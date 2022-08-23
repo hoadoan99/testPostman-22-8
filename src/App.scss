@@ -1,0 +1,18 @@
+.app{
+    h1{
+        text-align: center;
+    }
+    .pagination{
+        text-align: center;
+        button{
+            padding: 7px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            outline: none;
+            border: 1px solid;
+        }
+        .btn-prev{
+            margin: 5px;
+        }
+    }
+}
