@@ -11,11 +11,11 @@ TestPostman.defaultProps = {
   list: [],
   onItemClick: null,
 };
-
 function TestPostman(props) {
   const { list, onItemClick } = props;
 
   console.log(list, onItemClick);
+  // Render
   return (
     <div className="list">
       {list.map((item) => {

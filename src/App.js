@@ -19,22 +19,22 @@ function App() {
     limit: 10,
     offset: 1,
   });
-  useEffect(() => {
-    async function fetchArticleList() {
-      try {
-        const paramsString = queryString.stringify(filter);
-        const requestUrl = `https://api.realworld.io/api/articles/?${paramsString}`;
-        const response = await fetch(requestUrl);
-        const responseJSON = await response.json();
-        const { data, pagination } = responseJSON;
-        setListArticle(data.articles);
-        setPagination(pagination);
-      } catch (error) {
-        console.log("Failed to call data!", error.message);
-      }
-    }
-    fetchArticleList();
-  }, [filter]);
+  // useEffect(() => {
+  //   async function fetchArticleList() {
+  //     try {
+  //       const paramsString = queryString.stringify(filter);
+  //       const requestUrl = `https://api.realworld.io/api/articles/?${paramsString}`;
+  //       const response = await fetch(requestUrl);
+  //       const responseJSON = await response.json();
+  //       const { data, pagination } = responseJSON;
+  //       setListArticle(data.articles);
+  //       setPagination(pagination);
+  //     } catch (error) {
+  //       console.log("Failed to call data!", error.message);
+  //     }
+  //   }
+  //   fetchArticleList();
+  // }, [filter]);
 
   useEffect(() => {
     const getData = async () => {
@@ -43,12 +43,11 @@ function App() {
       const data = await axios.get(requestUrl);
       const pagination = await axios.get(requestUrl);
       setListArticle(data.data.articles);
-      setPagination(pagination);
+      // setPagination(pagination);
     };
     getData();
   }, [filter]);
   function handlePageChange(newPage) {
-    // console.log("NewPage:", newPage);
     setFilter({
       ...filter,
       offset: newPage,
