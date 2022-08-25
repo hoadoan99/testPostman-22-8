@@ -13,25 +13,29 @@ Pagination.defaultProps = {
 
 function Pagination(props) {
   const { pagination, onPageChange } = props;
-  const { offset, limit, articlesCount } = pagination;
-  const totalPage = Math.ceil(articlesCount / limit);
+  const { offset, limit, articleCount } = pagination;
+  console.log('articlesCount', articleCount)
+
   function handlePageChange(newPage) {
     if (onPageChange) {
       onPageChange(newPage);
     }
   }
   return (
-    <div className="pagination">
+    <div className='pagination'>
       <button
-        className="btn-prev"
-        disabled={offset <= 1}
-        onClick={() => handlePageChange(offset - 1)}>
+        className='btn-prev'
+        disabled={offset <= 0}
+        onClick={() => handlePageChange(offset - 1)}
+      >
         Prev
       </button>
+      <span className="current-page">{offset}</span>
       <button
-        className="btn-next"
-        disabled={offset >= totalPage}
-        onClick={() => handlePageChange(offset + 1)}>
+        className='btn-next'
+        disabled={articleCount === 0}
+        onClick={() => handlePageChange(offset + 1)}
+      >
         Next
       </button>
     </div>
