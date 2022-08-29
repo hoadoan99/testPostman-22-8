@@ -7,7 +7,7 @@ import queryString from "query-string";
 import ListArticles from "./components/TestPostman";
 import Pagination from "./components/Pagination";
 import { BASE_URL, PAGINATION } from "./constants";
-import { api } from "./configApi";
+import api from "./configApi";
 
 // import ColorBox from "./components/ColorBox";
 function App() {
@@ -26,6 +26,7 @@ function App() {
       setIsLoading(true);
       try {
         const requestUrl = `/articles/?limit=${PAGINATION.LIMIT}&offset=${pagination.offset}`;
+        console.log("api", api.head);
         const response = await api.get(requestUrl);
 
         setIsLoading(false);

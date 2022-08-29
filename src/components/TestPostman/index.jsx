@@ -3,7 +3,7 @@
 import React, { Fragment, useState } from "react";
 import PropTypes from "prop-types";
 import "./TestPostman.scss";
-import { api } from "../../configApi";
+import api from "../../configApi";
 
 ListArticles.propTypes = {
   list: PropTypes.array,
@@ -22,7 +22,7 @@ function ListArticles(props) {
 
   const handleFavorited = (item) => {
     console.log("item", item);
-    const { favorited, favoritesCount, slug } = item;
+    let { favorited, favoritesCount, slug } = item;
 
     if (!favorited) {
       setIsLoading(true);
